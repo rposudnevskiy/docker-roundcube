@@ -93,6 +93,7 @@ case ${1} in
   app:start)
     wait_for_mysql
     init_config
+    init_db
     start_server
     ;;
   app:init)
