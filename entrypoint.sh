@@ -46,6 +46,9 @@ init_config() {
 
   db="'mysql://' . getenv('MYSQL_USER') . ':' . getenv('MYSQL_PASSWORD') . '@' . getenv('MYSQL_HOST') . '/' . getenv('MYSQL_DATABASE')"
   echo "\$config['db_dsnw'] = $db;" >> "$env_config"
+  
+  echo "\$config['smtp_auth_type'] = 'CRAM-MD5';" >> "$env_config"
+  echo "\$config['imap_auth_type'] = 'CRAM-MD5';" >> "$env_config"
 
   key=`openssl rand -base64 24`
   echo "\$config['des_key'] = '$key';" >> "$env_config"
